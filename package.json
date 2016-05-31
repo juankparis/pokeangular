@@ -1,0 +1,39 @@
+{
+  "name": "pokeangular",
+  "version": "0.0.1",
+  "description": "aplicacion en angular para aprender los conceptos de el framework ",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juankparis/pokeangular.git"
+  },
+  "keywords": [
+    "angularjs",
+    "app",
+    "pokemon",
+    "pokedex",
+    "learn",
+    "tutorial"
+  ],
+  "author": "Juan Carlos Alfonso C",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juankparis/pokeangular/issues"
+  },
+  "homepage": "https://github.com/juankparis/pokeangular#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-stylus": "^2.4.0",
+    "gulp-webserver": "^0.9.1",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "nib": "^1.1.0",
+    "wiredep": "^4.0.0"
+  }
+}

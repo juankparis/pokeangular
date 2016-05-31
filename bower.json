@@ -1,0 +1,26 @@
+{
+  "name": "pokeangular",
+  "description": "aplicacion en angular para aprender los conceptos de el framework",
+  "main": "gulpfile.js",
+  "authors": [
+    "Juan Carlos Alfonso C"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angularjs",
+    "app",
+    "pokemon",
+    "pokedex",
+    "learn",
+    "tutorial"
+  ],
+  "homepage": "https://github.com/juankparis/pokeangular",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ]
+}
