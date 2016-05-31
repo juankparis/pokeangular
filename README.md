@@ -1,0 +1,2 @@
+# pokeangular
+aplicacion en angular
