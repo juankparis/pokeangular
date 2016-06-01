@@ -23,5 +23,11 @@
 		    },
 		    evolution: [ "Bulbasaur", "Ivysaur", "Venusaur" ]
 		};
+		this.tab = 1;
+
+		this.selectTab = function(tab){
+			this.tab = tab;
+		};
 	});
+
 })();
