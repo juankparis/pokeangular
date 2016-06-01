@@ -1,5 +1,5 @@
 (function(){
-	'use strict'
+	"use strict";
 
 	angular.module('pokeangular.controllers', [])
 
@@ -24,7 +24,6 @@
 			    evolution: [ "Bulbasaur", "Ivysaur", "Venusaur" ]
 			};
 		})
-
 		.controller('TabController', function(){
 			this.tab = 1;
 
