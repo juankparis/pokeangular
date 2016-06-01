@@ -54,7 +54,9 @@
 		};
 
 		this.addComment = function(){
+			this.comment.date = Date.now();
 			this.comments.push(this.comment);
+			this.comment = {};
 		};
 
 	});
