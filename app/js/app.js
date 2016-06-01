@@ -1,5 +1,5 @@
 (function(){
-	"use strict"
+	"use strict";
 	
 	var app = angular.module('pokeangular', []);
 
@@ -36,6 +36,16 @@
 			return tab === this.tab;
 		};
 
+	});
+
+	app.controller('CommentsController', function(){
+		this.comments = [];
+
+		this.show = false;
+
+		this.toggle = function(){
+			this.show = !this.show;
+		};
 	});
 
 	app.filter('imageify', function () {
