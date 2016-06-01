@@ -49,32 +49,9 @@
                         <li ng-class="{ active: tabs.isActive(2) }"><a href="#" ng-click="tabs.selectTab(2)">Stats</a></li>
                         <li ng-class="{ active: tabs.isActive(3) }"><a href="#" ng-click="tabs.selectTab(3)">Evolution</a></li>
                     </ul>
+                    <!-- Pokedex -->
                     <article class="tab-content" ng-show="tabs.isActive(1)">
-                        <!-- Pokedex -->
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <strong>Type</strong>
-                                <span class="label type pull-right type-{{type | lowercase}}" ng-repeat="type in pkmCtrl.pokemon.type">
-                                    {{type}}
-                                </span>
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Height</strong>
-                                <span class="pull-right">{{pkmCtrl.pokemon.height}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Weight</strong>
-                                <span class="pull-right">{{pkmCtrl.pokemon.weight}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Abilities</strong>
-                                <ul>
-                                    <li ng-repeat="ability in pkmCtrl.pokemon.abilities">
-                                        {{ability}}
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <pokemon-data></pokemon-data>    
                     </article>
                     <!-- Stats -->
                     <article ng-show="tabs.isActive(2)">
