@@ -31,6 +31,11 @@
 		this.selectTab = function(tab){
 			this.tab = tab;
 		};
+
+		this.isActive = function(tab){
+			return tab === this.tab;
+		};
+
 	});
 
 	app.filter('imageify', function () {
