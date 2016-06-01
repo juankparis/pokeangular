@@ -23,11 +23,21 @@
 		    },
 		    evolution: [ "Bulbasaur", "Ivysaur", "Venusaur" ]
 		};
+	});
+
+	app.controller('TabController', function(){
 		this.tab = 1;
 
 		this.selectTab = function(tab){
 			this.tab = tab;
 		};
 	});
+
+	app.filter('imageify', function () {
+    	return function (input) {
+      	var url = "img/pokemons/" + input.toLowerCase() + ".jpg";
+      	return url;
+    	};
+  	});
 
 })();
