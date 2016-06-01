@@ -1,7 +1,9 @@
 (function(){
+	"use strict"
+	
 	var app = angular.module('pokeangular', []);
 
-	app.controller('pokemonController', function(){
+	app.controller('PokemonController', function(){
 		this.pokemon = {
 			id: "001",
       		name: "Bulbasaur",
