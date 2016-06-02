@@ -10,10 +10,16 @@
 
 	app.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider
-			.when('/', {
+			.when('/',{
+				templateUrl: '/views/pokedex.html'
+			})
+			.when('/pokemon/:name', {
 				templateUrl: '/views/pokemon.html',
 				controller: 'PokemonController',
 				controllerAs: 'pkmCtrl'
+			})
+			.otherwise({ 
+				redirectTo: '/' 
 			});
 	}]);
 
