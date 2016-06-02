@@ -30,50 +30,7 @@
       </div>
     </nav>
     <section class="container U-margintop4em">
-      <!-- pokemon -->
-        <section ng-controller="PokemonController as pkmCtrl">
-            <article class="page-header">
-                <pokemon-name></pokemon-name>
-            </article>
-            <section class="row">
-                <figure class="col-md-6">
-                    <pokemon-image></pokemon-image>
-                    <!-- <img class="avatar center-block" ng-src="{{pkmCtrl.pokemon.name | imageify}}"> -->
-                </figure>
-                <article class="col-md-6" ng-controller="TabController as tabs">
-                    <ul class="nav nav-tabs nav-justified">
-                        <li ng-class="{ active: tabs.isActive(1) }"><a href="#" ng-click="tabs.selectTab(1)">Pokédex</a></li>
-                        <li ng-class="{ active: tabs.isActive(2) }"><a href="#" ng-click="tabs.selectTab(2)">Stats</a></li>
-                        <li ng-class="{ active: tabs.isActive(3) }"><a href="#" ng-click="tabs.selectTab(3)">Evolution</a></li>
-                    </ul>
-                    <!-- Pokedex -->
-                    <article class="tab-content" ng-show="tabs.isActive(1)">
-                        <pokemon-data></pokemon-data>    
-                    </article>
-                    <!-- Stats -->
-                    <article ng-show="tabs.isActive(2)">
-                        <pokemon-stats></pokemon-stats>
-                    </article>
-                    <!-- Evolution -->
-                    <article ng-show="tabs.isActive(3)">
-                        <pokemon-evolution></pokemon-evolution>
-                        <!-- <div class="text-center U-cajasPkm" ng-repeat="pokemon in pkmCtrl.pokemon.evolution">
-                            <a href="#">
-                                <img ng-src="{{pokemon | imageify}}" width="160">
-                                <p>
-                                    <strong>{{pokemon}}</strong>
-                                </p>
-                            </a>
-                            <span ng-hide="$last" class="glyphicon glyphicon-arrow-down"></span>
-                        </div> -->
-                    </article>
-                </article>
-            </section>
-                <!-- comments -->
-                <pokemon-comments></pokemon-comments>
-                <!-- /comments-->
-        </section>
-        <!-- /pokemon -->
+        <div ng-view></div>
     </section>
 	<!-- bower:js -->
 	<script src="lib/angular/angular.js"></script>
