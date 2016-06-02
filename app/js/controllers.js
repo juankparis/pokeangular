@@ -3,6 +3,10 @@
 
 	angular.module('pokeangular.controllers', [])
 
+		.controller('pokedexController', ['$scope', '$http', function($scope, $http){
+
+		}])
+
 		.controller('PokemonController', function(){
 			this.pokemon = {
 				id: "001",
