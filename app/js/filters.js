@@ -3,10 +3,20 @@
 
 	angular.module('pokeangular.filters', [])
 
-		.filter('imageify', function () {
+		.filter('normalize', function(){
+			return function(input){
+				input = input
+					.replace('♀', 'f')
+                	.replace('♂', 'm')
+                	.replace(/\W+/g, "");
+          		return input.toLowerCase();
+			};
+		})
+
+		.filter('imageify', ['$filter', function ($filter) {
 	    	return function (input) {
-	      	var url = "img/pokemons/" + input.toLowerCase() + ".jpg";
+	      	var url = "img/pokemons/" + $filter('normalize')(input) + ".jpg";
 	      	return url;
 	    	};
-	  	});
+	  	}]);
 })();
