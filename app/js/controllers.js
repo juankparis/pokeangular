@@ -4,7 +4,12 @@
 	angular.module('pokeangular.controllers', [])
 
 		.controller('pokedexController', ['$scope', '$http', function($scope, $http){
+			$scope.pokemons = [];
 
+			$http.get('/pokemons.json')
+				.success(function(data){
+					$scope.pokemons = data;
+				});
 		}])
 
 		.controller('PokemonController', function(){
