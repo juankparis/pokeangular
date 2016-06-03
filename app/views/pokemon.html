@@ -1,12 +1,11 @@
 <!-- pokemon -->
-<section ng-controller="PokemonController as pkmCtrl">
+<section>
     <article class="page-header">
         <pokemon-name></pokemon-name>
     </article>
     <section class="row">
-        <figure class="col-md-6">
+        <figure class="col-sm-12 col-md-6 pokeimg">
             <pokemon-image></pokemon-image>
-            <!-- <img class="avatar center-block" ng-src="{{pkmCtrl.pokemon.name | imageify}}"> -->
         </figure>
         <article class="col-md-6" ng-controller="TabController as tabs">
             <ul class="nav nav-tabs nav-justified">
@@ -15,17 +14,19 @@
                 <li ng-class="{ active: tabs.isActive(3) }"><a ng-click="tabs.selectTab(3)">Evolution</a></li>
             </ul>
             <!-- Pokedex -->
-            <article class="tab-content" ng-show="tabs.isActive(1)">
-                <pokemon-data></pokemon-data>    
-            </article>
-            <!-- Stats -->
-            <article ng-show="tabs.isActive(2)">
-                <pokemon-stats></pokemon-stats>
-            </article>
-            <!-- Evolution -->
-            <article ng-show="tabs.isActive(3)">
-                <pokemon-evolution></pokemon-evolution>
-            </article>
+            <div class="tab-content">    
+                <article ng-show="tabs.isActive(1)">
+                    <pokemon-data></pokemon-data>    
+                </article>
+                <!-- Stats -->
+                <article ng-show="tabs.isActive(2)">
+                    <pokemon-stats></pokemon-stats>
+                </article>
+                <!-- Evolution -->
+                <article ng-show="tabs.isActive(3)">
+                    <pokemon-evolution></pokemon-evolution>
+                </article>
+            </div> 
         </article>
     </section>
         <!-- comments -->
