@@ -1,9 +1,10 @@
 <ul class="list-group">
     <li class="list-group-item">
         <strong>Type</strong>
-        <span class="label type pull-right type-{{type | lowercase}}" ng-repeat="type in pokemon.type">
+        <!-- <span class="label type pull-right type-{{type | lowercase}}" ng-repeat="type in pokemon.type">
             {{type}}
-        </span>
+        </span> -->
+        <pokemon-type></pokemon-type>
     </li>
     <li class="list-group-item">
         <strong>Height</strong>
