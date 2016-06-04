@@ -1,6 +1,6 @@
 <section>
 	<article class="page-header">
-		<h1>pokedex</h1>
+		<h1>Pokédex <small class="pull-right">Showing <span class="badge">{{pokemons.length}}</span> Pokémons</small></h1>
 	</article>
 	<article class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="pokemon in pokemons">
 		<a href="/#pokemon/{{pokemon.name | normalize}}">
