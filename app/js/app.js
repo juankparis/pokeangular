@@ -5,7 +5,8 @@
 		'ngRoute',
 		'pokeangular.controllers',
 		'pokeangular.directives',
-		'pokeangular.filters'
+		'pokeangular.filters',
+		'pokeangular.services'
 	]);
 
 	app.config(['$routeProvider', function ($routeProvider) {
