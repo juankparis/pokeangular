@@ -5,6 +5,8 @@
 
 		.filter('normalize', function(){
 			return function(input){
+				if (!input) return "";
+
 				input = input
 					.replace('♀', 'f')
                 	.replace('♂', 'm')
