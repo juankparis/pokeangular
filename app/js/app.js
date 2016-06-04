@@ -15,6 +15,10 @@
 				templateUrl: '/views/pokedex.html',
 				controller: 'pokedexController'
 			})
+			.when('/type/:type', {
+				templateUrl: '/views/pokedex.html',
+				controller: 'pokedexController'
+			})
 			.when('/pokemon/:name', {
 				templateUrl: '/views/pokemon.html',
 				controller: 'PokemonController'
