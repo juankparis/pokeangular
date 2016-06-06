@@ -59,7 +59,7 @@
 			function getComments (pokemon){
 				var comments = localStorage.getItem(pokemon);
 
-				if(!pokemon){
+				if(!comments){
 					comments = [];
 				}else{
 					comments = JSON.parse(comments);
