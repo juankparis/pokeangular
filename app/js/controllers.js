@@ -5,7 +5,7 @@
 
 		.controller('pokedexController', ['$scope', '$routeParams', 'pokemonService', function($scope, $routeParams, pokemonService){
 			var type = $routeParams.type;
-
+			
 			if(type){
 				$scope.type = type;
 				
@@ -22,7 +22,6 @@
 
 		.controller('PokemonController', ['$scope', '$routeParams', 'pokemonService', function($scope, $routeParams, pokemonService){
 			var name = $routeParams.name
-			$scope.pokemon = {};
 
 			pokemonService.byName(name)
 				.then(function(data){

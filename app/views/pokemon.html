@@ -1,5 +1,24 @@
 <!-- pokemon -->
-<section>
+<div ng-if="!pokemon">
+    <div class="page-header">
+        <h2>Error </h2>
+    </div>
+    <a href="/#/">
+        <div class="panel U-borderHover cardError">
+            <div class="panel-heading">
+                <h4>
+                    Pokémon not found
+                    <small class="U-inlineBlock">or not exists</small>
+                    <span class="badge pull-right">error</span>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <img class="img-responsive" src="../img/pokemonFound.jpg" alt="pokemon">
+            </div>
+        </div>  
+    </a>
+</div>
+<section ng-if="pokemon">
     <article class="page-header">
         <pokemon-name></pokemon-name>
     </article>
