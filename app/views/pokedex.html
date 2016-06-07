@@ -4,21 +4,7 @@
 		<h2 ng-if="type"><span class="label type-{{type | lowercase}}">{{type}}</span></h2>
 	</article>
 	<article class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="pokemon in pokemons">
-		<a href="/#pokemon/{{pokemon.name | normalize}}">
-	        <div class="pokemon panel U-borderHover"><!-- panel-primary -->
-	            <div class="panel-heading">
-	                <pokemon-name></pokemon-name>
-	            </div>
-	            <div class="panel-body">
-	            		<pokemon-image></pokemon-image>
-	            </div>
-	            <div class="panel-footer">
-	                <div class="text-center">
-	                    <pokemon-type></pokemon-type>
-	                </div>
-	            </div>
-	        </div>
-	    </a>
+		<pokemon-card></pokemon-card>
   	</article>
 </section>
 
