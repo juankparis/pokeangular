@@ -3,6 +3,7 @@
 	
 	var app = angular.module('pokeangular', [
 		'ngRoute',
+		'angular-md5',
 		'pokeangular.controllers',
 		'pokeangular.directives',
 		'pokeangular.filters',
