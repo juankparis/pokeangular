@@ -3,6 +3,13 @@
 		<h1>Pokédex <small class="pull-right">Showing <span class="badge">{{pokemons.length}}</span> Pokémons</small></h1>
 		<h2 ng-if="type"><span class="label type-{{type | lowercase}}">{{type}}</span></h2>
 	</article>
+	<article class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2">
+        <div class="row">
+            <div class="page-header">
+                <input ng-model="searchTerm" ng-keyup="search()" type="text" class="form-control input-md" placeholder="Search for name">
+            </div>
+        </div>
+    </article>
 	<article class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="pokemon in pokemons">
 		<pokemon-card></pokemon-card>
   	</article>

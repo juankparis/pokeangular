@@ -5,20 +5,34 @@
 
 		.controller('pokedexController', ['$rootScope', '$scope', '$routeParams', 'pokemonService', function($rootScope, $scope, $routeParams, pokemonService){
 			var type = $routeParams.type;
+			var pokemons = [];
 			$rootScope.title = "";
 			
 			if(type){
 				$scope.type = type;
 				
 				pokemonService.byType(type).then(function(data){
-					$scope.pokemons = data;
+					$scope.pokemons = pokemons = data;
 					$rootScope.title = "type";
 				});
 			}else{
 				pokemonService.all().then(function(data){
-					$scope.pokemons = data;
+					$scope.pokemons = pokemons = data;
 				});
 			}
+
+			$scope.search = function(){
+                var result = pokemons;
+                
+                if ($scope.searchTerm) {
+                    result = pokemons.filter(function (pokemon) {
+                    var name = pokemon && pokemon.name || "";
+
+                    return name.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1;
+                });
+            }
+            $scope.pokemons = result;
+            };
 
 		}])
 
