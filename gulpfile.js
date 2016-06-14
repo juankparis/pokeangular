@@ -6,7 +6,12 @@ var gulp = require('gulp'),
 	jshint = require('gulp-jshint'), 
 	stylish = require('jshint-stylish'),
 	inject = require('gulp-inject'),
-	wiredep = require('wiredep').stream;
+	wiredep = require('wiredep').stream,
+  imagesop = require('gulp-image-optimization'),
+  gulpif = require('gulp-if'),
+  useref = require('gulp-useref'),
+  uglify = require('gulp-uglify'),
+  uncss = require('gulp-uncss');
 
 config={
   rutserver:{
@@ -32,6 +37,14 @@ config={
     main: './app/index.html',
     js_and_css: ["./app/js/**/*.js", "./app/css/**/*.css"],
     output: './app'
+  },
+  images:{
+    watch: ['./app/img/**/*.png','./app/img/**/*.jpg','./app/img/**/*.svg'],
+    output: './dist/img'
+  },
+  useref:{
+    main: './app/index.html',
+    output: './dist'
   }
 }
 //server for develop
@@ -77,13 +90,56 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-//escucha cambios de desarrollo (develop)
+//escucha cambios de desarrollo src (develop)
 gulp.task("watch", function () {
     gulp.watch(config.styles.watch, ["css", "inject"]);
     gulp.watch('./bower.json', ["wiredep"]);
     gulp.watch([config.js.watch, './Gulpfile.js'], ['jshint', "inject"]);
 });
 
-gulp.task('app', ['css', 'wiredep', 'inject'])
+//server for dist
+gulp.task('server_dist', function() {
+  gulp.src(config.rutserver.dist)
+    .pipe(webserver({
+      host: '0.0.0.0',
+      port: 9001,
+      livereload: true,
+      open: true
+    }));
+});
 
+// optimiza las imgs de ./app/img y las copia en dist/img
+gulp.task('imgop', function(){
+  gulp.src(config.images.watch)
+    .pipe(imagesop({
+      optimizationLevel: 5,
+      progressive: true,
+      interlaced: true
+    }))
+    .pipe(gulp.dest(config.images.output))
+});
+
+//copea los archivos a la carpetas dist
+gulp.task('copy', function(){
+  gulp.src('./app/lib/bootstrap/fonts/**')
+    .pipe(gulp.dest('./dist/fonts'));
+  gulp.src('./app/pokemons.json')
+    .pipe(gulp.dest('./dist'));
+});
+
+//renombra y crea un solo archivo con su link a css y js en index.html
+gulp.task('useref', function () {
+  return gulp.src(config.useref.main)
+    .pipe(useref())
+    //.pipe(gulpif('js/main.js', uglify()))
+    .pipe(gulpif('css/combined.css', minifyCSS()))
+    .pipe(gulp.dest(config.useref.output));
+});
+
+//tareas de src (develop)
+gulp.task('app', ['css', 'wiredep', 'inject'])
+//task main (tarea principal)
 gulp.task('default', ['server', 'app', 'watch']);
+
+//tareas de dist
+gulp.task('develop_dist', ['server_dist', 'imgop', 'copy', 'useref']);
