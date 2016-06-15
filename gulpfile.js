@@ -10,8 +10,7 @@ var gulp = require('gulp'),
   imagesop = require('gulp-image-optimization'),
   gulpif = require('gulp-if'),
   useref = require('gulp-useref'),
-  uglify = require('gulp-uglify'),
-  uncss = require('gulp-uncss');
+  uglify = require('gulp-uglify');
 
 config={
   rutserver:{
@@ -125,6 +124,10 @@ gulp.task('copy', function(){
     .pipe(gulp.dest('./dist/fonts'));
   gulp.src('./app/pokemons.json')
     .pipe(gulp.dest('./dist'));
+  gulp.src('./app/views/**')
+    .pipe(gulp.dest('./dist/views'));
+  gulp.src('./app/partials/**')
+    .pipe(gulp.dest('./dist/partials'));
 });
 
 //renombra y crea un solo archivo con su link a css y js en index.html
